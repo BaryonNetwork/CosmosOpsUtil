@@ -5,7 +5,7 @@
 ### takes two parameters block and ValidatorAddress
 ### defaults to ValidatorAddress 3AAD96F8B01F73344079C1D030B7AF5351BF9C11
 ### example Block Check Utility script call
-### ./blockcheck.sh bc 106733 3AAD96F8B01F73344079C1D030B7AF5351BF9C11
+### ./blockcheck.sh 106733 3AAD96F8B01F73344079C1D030B7AF5351BF9C11
 ###
 ### convient alias installation:
 ### echo 'alias bc="~/blockcheck.sh"'>>~/.bash_profile

@@ -7,7 +7,7 @@
 ### example Block Check Utility script call
 ### ./blockcheck.sh 106733 3AAD96F8B01F73344079C1D030B7AF5351BF9C11
 ###
-### convient alias installation:
+### convenient alias installation:
 ### echo 'alias bc="~/blockcheck.sh"'>>~/.bash_profile
 ### source ~/.bash_profile
 ### call in a loop from your terminal example:

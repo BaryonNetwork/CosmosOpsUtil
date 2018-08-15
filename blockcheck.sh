@@ -2,6 +2,7 @@
 
 #########################
 ### Block Check Utility for Cosmos Network blockchain fullnodes and validators
+### scripted by baryon.network
 ### takes two parameters block and ValidatorAddress
 ### defaults to ValidatorAddress 3AAD96F8B01F73344079C1D030B7AF5351BF9C11
 ### example Block Check Utility script call

@@ -2,7 +2,7 @@
 
 #########################
 ### Block Check Utility for Cosmos Network blockchain fullnodes and validators
-### scripted by baryon.network
+### compliments of baryon.network
 ### takes two parameters block and ValidatorAddress
 ### defaults to ValidatorAddress 3AAD96F8B01F73344079C1D030B7AF5351BF9C11
 ### example Block Check Utility script call
@@ -19,14 +19,22 @@
 block=${1:-DEFAULTVALUE}
 vaddr=${2:-3AAD96F8B01F73344079C1D030B7AF5351BF9C11}
 
-urlstr='http://localhost:26657/commit?'$block
+urlstr='http://localhost:26657/commit?height='$block
 
-echo -n $(date +"%Y%m%d%H%M%S") ' '
-check=$(curl -s $urlstr|grep $vaddr)
-if [ -z "$check" ]
+commitEndpoint=$(curl -s $urlstr)
+if [ -z "$commitEndpoint" ]
   then
-    echo "MISSED BLOCK $block"
+    echo ''
+    echo -n $(date +"%Y%m%d%H%M%S") ' '
+    echo " *** ALERT! No response from endpoint ***"
+    echo " *** $urlstr ***"
   else
-    echo 'block: '$block' '$check
+    vCheck=$(echo $commitEndpoint|grep $vaddr)
+    if [ -z "$vCheck" ]
+    then
+      echo "$vaddr MISSED COMMIT BLOCK $block"
+    else
+      echo "$vaddr present for $block"
+   fi
 fi
 

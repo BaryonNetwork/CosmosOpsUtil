@@ -1,8 +1,11 @@
 #!/bin/bash
 
 ### autovote.sh ### 
-# courtesy of baryon.network
-# sugested to run inside of a screen session 
+# courtesy of baryon.network 20180831
+# free to edit and redistribute
+# to avoid placing your signature passpharasse in a file this script will prompt you for passphrase
+# update --from={your validator key wallet} befor running
+# sugested to run this script inside of a screen session 
 ###
 
 
@@ -21,7 +24,7 @@ while true
         echo $(date +"%Y%m%d-%H:%M:%S") " New Proposal $current_proposal"
         echo "Voting Yes on your behalf, since this is only testnet."
         proposal_id=${current_proposal//[[:blank:]]/}
-        echo  $passphrase|gaiacli gov vote --proposal-id=$proposal_id --option=Yes --from=vwallet --chain-id=gaia-8001
+        echo  $passphrase|gaiacli gov vote --proposal-id=$proposal_id --option=Yes --from={your validator key wallet} --chain-id=gaia-8001
 
         known_proposal=$current_proposal
      else
